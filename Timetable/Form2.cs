@@ -16,7 +16,20 @@ namespace Timetable
         {
             InitializeComponent();
         }
+        private bool isEmpty()
+        {
+            bool flag = false;
+            if (typeLesson.SelectedIndex == -1)
+            {
+                textType.Text = "Заполните поле";
+                textType.ForeColor = Color.Red;
+                flag = true;
+            }
+            return flag;
+                
 
+
+        }
         private void buttonReset2_Click(object sender, EventArgs e)
         {
             Close();
@@ -24,7 +37,10 @@ namespace Timetable
 
         private void buttonOk2_Click(object sender, EventArgs e)
         {
-            Close();
+            if (isEmpty())
+                return;
+            else
+                Close();
         }
     }
 }

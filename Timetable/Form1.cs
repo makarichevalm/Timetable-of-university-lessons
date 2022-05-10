@@ -12,7 +12,7 @@ namespace Timetable
 {
     public partial class Form1 : Form
     {
-        
+        private List<StringTable> stroke = new List<StringTable>();//список объектов, которые будут лежать в Json
         public Form1()
         {
             InitializeComponent();
