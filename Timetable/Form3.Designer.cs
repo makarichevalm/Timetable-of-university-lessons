@@ -259,6 +259,7 @@ namespace Timetable
             this.Controls.Add(this.buttonReset3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form3";
             this.Text = "Изменение записи";
             this.ResumeLayout(false);

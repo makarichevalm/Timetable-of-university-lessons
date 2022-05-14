@@ -260,6 +260,7 @@ namespace Timetable
             this.Controls.Add(this.buttonReset2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form2";
             this.Text = "Добавление записи";
             this.ResumeLayout(false);
