@@ -41,7 +41,7 @@ namespace Timetable
             this.group = new System.Windows.Forms.TextBox();
             this.lesson = new System.Windows.Forms.TextBox();
             this.typeLesson = new System.Windows.Forms.ComboBox();
-            this.type = new System.Windows.Forms.ComboBox();
+            this.time = new System.Windows.Forms.ComboBox();
             this.textType = new System.Windows.Forms.Label();
             this.textTeacher = new System.Windows.Forms.Label();
             this.textTime = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@ namespace Timetable
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(21, 78);
+            this.label1.Location = new System.Drawing.Point(12, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 24);
             this.label1.TabIndex = 3;
@@ -105,7 +105,7 @@ namespace Timetable
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(21, 213);
+            this.label3.Location = new System.Drawing.Point(12, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 24);
             this.label3.TabIndex = 5;
@@ -115,7 +115,7 @@ namespace Timetable
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(21, 283);
+            this.label4.Location = new System.Drawing.Point(12, 283);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(71, 24);
             this.label4.TabIndex = 6;
@@ -125,7 +125,7 @@ namespace Timetable
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(21, 350);
+            this.label5.Location = new System.Drawing.Point(12, 350);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 24);
             this.label5.TabIndex = 7;
@@ -164,14 +164,14 @@ namespace Timetable
             this.typeLesson.Size = new System.Drawing.Size(283, 28);
             this.typeLesson.TabIndex = 12;
             // 
-            // type
+            // time
             // 
-            this.type.DropDownHeight = 57;
-            this.type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.type.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.type.FormattingEnabled = true;
-            this.type.IntegralHeight = false;
-            this.type.Items.AddRange(new object[] {
+            this.time.DropDownHeight = 57;
+            this.time.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.time.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.time.FormattingEnabled = true;
+            this.time.IntegralHeight = false;
+            this.time.Items.AddRange(new object[] {
             "8:00",
             "9:50",
             "11:40",
@@ -179,56 +179,51 @@ namespace Timetable
             "15:35",
             "17:25",
             "19:15"});
-            this.type.Location = new System.Drawing.Point(207, 350);
-            this.type.MaxDropDownItems = 2;
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(283, 28);
-            this.type.TabIndex = 13;
+            this.time.Location = new System.Drawing.Point(203, 350);
+            this.time.MaxDropDownItems = 2;
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(283, 28);
+            this.time.TabIndex = 13;
             // 
             // textType
             // 
             this.textType.AutoSize = true;
-            this.textType.Location = new System.Drawing.Point(199, 249);
+            this.textType.Location = new System.Drawing.Point(12, 249);
             this.textType.Name = "textType";
-            this.textType.Size = new System.Drawing.Size(104, 20);
+            this.textType.Size = new System.Drawing.Size(0, 20);
             this.textType.TabIndex = 14;
-            this.textType.Text = "-------------------";
             // 
             // textTeacher
             // 
             this.textTeacher.AutoSize = true;
-            this.textTeacher.Location = new System.Drawing.Point(203, 113);
+            this.textTeacher.Location = new System.Drawing.Point(12, 113);
             this.textTeacher.Name = "textTeacher";
-            this.textTeacher.Size = new System.Drawing.Size(84, 20);
+            this.textTeacher.Size = new System.Drawing.Size(0, 20);
             this.textTeacher.TabIndex = 15;
-            this.textTeacher.Text = "---------------";
             // 
             // textTime
             // 
             this.textTime.AutoSize = true;
-            this.textTime.Location = new System.Drawing.Point(203, 385);
+            this.textTime.Location = new System.Drawing.Point(12, 385);
             this.textTime.Name = "textTime";
-            this.textTime.Size = new System.Drawing.Size(64, 20);
+            this.textTime.Size = new System.Drawing.Size(0, 20);
             this.textTime.TabIndex = 16;
-            this.textTime.Text = "-----------";
             // 
             // textGroup
             // 
             this.textGroup.AutoSize = true;
-            this.textGroup.Location = new System.Drawing.Point(203, 317);
+            this.textGroup.Location = new System.Drawing.Point(12, 317);
             this.textGroup.Name = "textGroup";
-            this.textGroup.Size = new System.Drawing.Size(74, 20);
+            this.textGroup.Size = new System.Drawing.Size(0, 20);
             this.textGroup.TabIndex = 17;
-            this.textGroup.Text = "-------------";
             // 
             // textLesson
             // 
             this.textLesson.AutoSize = true;
-            this.textLesson.Location = new System.Drawing.Point(207, 179);
+            this.textLesson.Location = new System.Drawing.Point(12, 179);
             this.textLesson.Name = "textLesson";
-            this.textLesson.Size = new System.Drawing.Size(64, 20);
+            this.textLesson.Size = new System.Drawing.Size(0, 20);
             this.textLesson.TabIndex = 18;
-            this.textLesson.Text = "-----------";
             // 
             // TextAdd
             // 
@@ -251,7 +246,7 @@ namespace Timetable
             this.Controls.Add(this.textTime);
             this.Controls.Add(this.textTeacher);
             this.Controls.Add(this.textType);
-            this.Controls.Add(this.type);
+            this.Controls.Add(this.time);
             this.Controls.Add(this.typeLesson);
             this.Controls.Add(this.lesson);
             this.Controls.Add(this.group);
@@ -276,16 +271,16 @@ namespace Timetable
 
         private System.Windows.Forms.Button buttonReset2;
         private System.Windows.Forms.Button buttonOk2;
-        private System.Windows.Forms.TextBox teacher;
+        public System.Windows.Forms.TextBox teacher;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox group;
-        private System.Windows.Forms.TextBox lesson;
-        private System.Windows.Forms.ComboBox typeLesson;
-        private System.Windows.Forms.ComboBox type;
+        public System.Windows.Forms.TextBox group;
+        public System.Windows.Forms.TextBox lesson;
+        public System.Windows.Forms.ComboBox typeLesson;
+        public System.Windows.Forms.ComboBox time;
         private System.Windows.Forms.Label textType;
         private System.Windows.Forms.Label textTeacher;
         private System.Windows.Forms.Label textTime;

@@ -38,6 +38,7 @@ namespace Timetable
             this.panelTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Phone = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.Change = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
@@ -143,6 +144,7 @@ namespace Timetable
             // Phone
             // 
             this.Phone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
+            this.Phone.Controls.Add(this.label2);
             this.Phone.Controls.Add(this.Change);
             this.Phone.Controls.Add(this.Save);
             this.Phone.Controls.Add(this.Delete);
@@ -152,6 +154,14 @@ namespace Timetable
             this.Phone.Name = "Phone";
             this.Phone.Size = new System.Drawing.Size(940, 472);
             this.Phone.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(73, 243);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 23);
+            this.label2.TabIndex = 5;
             // 
             // Change
             // 
@@ -170,6 +180,7 @@ namespace Timetable
             this.Save.TabIndex = 3;
             this.Save.Text = "Сохранить";
             this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // Delete
             // 
@@ -255,6 +266,7 @@ namespace Timetable
             this.panelMenu.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.Phone.ResumeLayout(false);
+            this.Phone.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -279,6 +291,7 @@ namespace Timetable
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button Change;
         private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.Label label2;
     }
 }
 

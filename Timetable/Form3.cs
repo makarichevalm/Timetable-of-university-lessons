@@ -12,7 +12,7 @@ namespace Timetable
 {
     public partial class Form3 : Form
     {
-        public Form3()
+        public Form3()//StringTable str
         {
             InitializeComponent();
         }
