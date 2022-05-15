@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Timetable
@@ -88,9 +82,13 @@ namespace Timetable
         }
         private void buttonReset2_Click(object sender, EventArgs e)
         {
+            TeacherBox = "";
+            LessonBox = "";
+            TypeBox = "";
+            GroupBox = "";
+            TimeBox = "";
             Close();
         }
-
         private void buttonOk2_Click(object sender, EventArgs e)
         {
             if (IsEmpty())
@@ -104,12 +102,6 @@ namespace Timetable
                 TypeBox = typeLesson.Text;
                 GroupBox = group.Text;
                 TimeBox = time.Text;
-                //stroke.Add(new StringTable(TeacherBox, LessonBox, TypeBox, GroupBox, TimeBox));
-                //foreach (var str in stroke)
-                //{
-                //dataGridView1
-                //Console.WriteLine(str);
-                //}
                 Close();
             }   
         }

@@ -58,22 +58,24 @@ namespace Timetable
                 }*/
 
                 //fstream.Close();
-                stroke.Add(new StringTable(teacherBox, lessonBox, typeBox, groupBox, timeBox));
+                
             //for (int i = 0; i < stroke.Count; i++)
             //{
             /*foreach (var str in stroke)
             {
                 label2.Text+= str.Teacher + "--" + str.Lesson + "--" + str.TypeLesson + "--" + str.Group + "--" + str.Time;
             }*/
-
-            dataGridView1.Rows.Add();
-            dataGridView1.Rows[rownumb].Cells[0].Value = (Convert.ToString(teacherBox));
-            dataGridView1.Rows[rownumb].Cells[1].Value = (Convert.ToString(lessonBox));
-            dataGridView1.Rows[rownumb].Cells[2].Value = (Convert.ToString(typeBox));
-            dataGridView1.Rows[rownumb].Cells[3].Value = (Convert.ToString(groupBox));
-            dataGridView1.Rows[rownumb].Cells[4].Value = (Convert.ToString(timeBox));
-            rownumb++;
-            //}
+            if(!string.IsNullOrEmpty(teacherBox) && !string.IsNullOrEmpty(lessonBox) && !string.IsNullOrEmpty(typeBox) 
+                && !string.IsNullOrEmpty(groupBox) && !string.IsNullOrEmpty(timeBox)) { 
+                stroke.Add(new StringTable(teacherBox, lessonBox, typeBox, groupBox, timeBox));
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[rownumb].Cells[0].Value = (Convert.ToString(teacherBox));
+                dataGridView1.Rows[rownumb].Cells[1].Value = (Convert.ToString(lessonBox));
+                dataGridView1.Rows[rownumb].Cells[2].Value = (Convert.ToString(typeBox));
+                dataGridView1.Rows[rownumb].Cells[3].Value = (Convert.ToString(groupBox));
+                dataGridView1.Rows[rownumb].Cells[4].Value = (Convert.ToString(timeBox));
+                rownumb++;
+            }
         }
         private void Save_Click(object sender, EventArgs e)
         {
@@ -83,7 +85,6 @@ namespace Timetable
         {
             Int32 selectCount =
         dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
-            StringBuilder sb = new StringBuilder();
             if (selectCount > 0)
             {
                 string teacher = dataGridView1.SelectedCells[0].Value.ToString();
@@ -91,13 +92,27 @@ namespace Timetable
                 string typeLesson = dataGridView1.SelectedCells[2].Value.ToString();
                 string group = dataGridView1.SelectedCells[3].Value.ToString();
                 string time = dataGridView1.SelectedCells[4].Value.ToString();
-                label2.Text = teacher + "--" + lesson + "--" + typeLesson + "--" + group + "--" + time; //Convert.ToString(selectCount);
+                //label2.Text = teacher + "--" + lesson + "--" + typeLesson + "--" + group + "--" + time; //Convert.ToString(selectCount);
+                foreach (var str in stroke)
+                {
+                    if (teacher == str.Teacher && lesson == str.Lesson && typeLesson == str.TypeLesson
+                        && group == str.Group && time == str.Time)
+                    {
+                        stroke.Remove(str);
+                        dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                        break;
+                    }
+                }
             }
             else
             {
                 MessageBox.Show("Выберите данные для удаления!");
                 return;
             }
-        }
+                foreach (var str in stroke)
+                {
+                    label2.Text += str.Teacher + "--" + str.Lesson + "--" + str.TypeLesson + "--" + str.Group + "--" + str.Time + "\n";
+                }
+            }
     }
 }
