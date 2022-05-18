@@ -11,7 +11,9 @@ namespace Timetable
         public static string LessonBox = "";
         public static string TypeBox = "";
         public static string GroupBox = "";
+        public static string DayBox = "";
         public static string TimeBox = "";
+        
         public Form2()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace Timetable
             textLesson.Text = "";
             textType.Text = "";
             textGroup.Text = "";
+            textDay.Text = "";
             textTime.Text = "";
             bool flag = false;
             if (typeLesson.SelectedIndex == -1)
@@ -52,6 +55,12 @@ namespace Timetable
             {
                 textTeacher.Text = "Заполните поле <Преподаватель>";
                 textTeacher.ForeColor = Color.Red;
+                flag = true;
+            }
+            if (!radio1.Checked && !radio2.Checked && !radio3.Checked && !radio4.Checked && !radio5.Checked && !radio6.Checked)
+            {
+                textDay.Text = "Заполните поле <День недели>";
+                textDay.ForeColor = Color.Red;
                 flag = true;
             }
             return flag;
@@ -102,6 +111,18 @@ namespace Timetable
                 TypeBox = typeLesson.Text;
                 GroupBox = group.Text;
                 TimeBox = time.Text;
+                if (radio1.Checked)
+                    DayBox = radio1.Text;
+                if (radio2.Checked)
+                    DayBox = radio2.Text;
+                if (radio3.Checked)
+                    DayBox = radio3.Text;
+                if (radio4.Checked)
+                    DayBox = radio4.Text;
+                if (radio5.Checked)
+                    DayBox = radio5.Text;
+                if (radio6.Checked)
+                    DayBox = radio6.Text;
                 Close();
             }   
         }

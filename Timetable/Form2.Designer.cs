@@ -48,12 +48,22 @@ namespace Timetable
             this.textGroup = new System.Windows.Forms.Label();
             this.textLesson = new System.Windows.Forms.Label();
             this.TextAdd = new System.Windows.Forms.Label();
+            this.textDay = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radio1 = new System.Windows.Forms.RadioButton();
+            this.radio2 = new System.Windows.Forms.RadioButton();
+            this.radio3 = new System.Windows.Forms.RadioButton();
+            this.radio4 = new System.Windows.Forms.RadioButton();
+            this.radio5 = new System.Windows.Forms.RadioButton();
+            this.radio6 = new System.Windows.Forms.RadioButton();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonReset2
             // 
             this.buttonReset2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReset2.Location = new System.Drawing.Point(284, 418);
+            this.buttonReset2.Location = new System.Drawing.Point(273, 528);
             this.buttonReset2.Name = "buttonReset2";
             this.buttonReset2.Size = new System.Drawing.Size(88, 36);
             this.buttonReset2.TabIndex = 0;
@@ -65,7 +75,7 @@ namespace Timetable
             // 
             this.buttonOk2.BackColor = System.Drawing.SystemColors.Control;
             this.buttonOk2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOk2.Location = new System.Drawing.Point(398, 418);
+            this.buttonOk2.Location = new System.Drawing.Point(398, 528);
             this.buttonOk2.Name = "buttonOk2";
             this.buttonOk2.Size = new System.Drawing.Size(88, 36);
             this.buttonOk2.TabIndex = 1;
@@ -125,7 +135,7 @@ namespace Timetable
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(12, 350);
+            this.label5.Location = new System.Drawing.Point(12, 348);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 24);
             this.label5.TabIndex = 7;
@@ -179,7 +189,7 @@ namespace Timetable
             "15:35",
             "17:25",
             "19:15"});
-            this.time.Location = new System.Drawing.Point(203, 350);
+            this.time.Location = new System.Drawing.Point(203, 346);
             this.time.MaxDropDownItems = 2;
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(283, 28);
@@ -204,7 +214,7 @@ namespace Timetable
             // textTime
             // 
             this.textTime.AutoSize = true;
-            this.textTime.Location = new System.Drawing.Point(12, 385);
+            this.textTime.Location = new System.Drawing.Point(12, 384);
             this.textTime.Name = "textTime";
             this.textTime.Size = new System.Drawing.Size(0, 20);
             this.textTime.TabIndex = 16;
@@ -235,11 +245,111 @@ namespace Timetable
             this.TextAdd.TabIndex = 19;
             this.TextAdd.Text = "Добавление записи";
             // 
+            // textDay
+            // 
+            this.textDay.AutoSize = true;
+            this.textDay.Location = new System.Drawing.Point(12, 509);
+            this.textDay.Name = "textDay";
+            this.textDay.Size = new System.Drawing.Size(0, 20);
+            this.textDay.TabIndex = 22;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(12, 416);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(114, 24);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "День недели";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radio6);
+            this.panel1.Controls.Add(this.radio5);
+            this.panel1.Controls.Add(this.radio4);
+            this.panel1.Controls.Add(this.radio3);
+            this.panel1.Controls.Add(this.radio2);
+            this.panel1.Controls.Add(this.radio1);
+            this.panel1.Location = new System.Drawing.Point(203, 414);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(283, 95);
+            this.panel1.TabIndex = 23;
+            // 
+            // radio1
+            // 
+            this.radio1.AutoSize = true;
+            this.radio1.Location = new System.Drawing.Point(22, 4);
+            this.radio1.Name = "radio1";
+            this.radio1.Size = new System.Drawing.Size(55, 24);
+            this.radio1.TabIndex = 0;
+            this.radio1.TabStop = true;
+            this.radio1.Text = "Пн";
+            this.radio1.UseVisualStyleBackColor = true;
+            // 
+            // radio2
+            // 
+            this.radio2.AutoSize = true;
+            this.radio2.Location = new System.Drawing.Point(22, 34);
+            this.radio2.Name = "radio2";
+            this.radio2.Size = new System.Drawing.Size(54, 24);
+            this.radio2.TabIndex = 1;
+            this.radio2.TabStop = true;
+            this.radio2.Text = "Вт";
+            this.radio2.UseVisualStyleBackColor = true;
+            // 
+            // radio3
+            // 
+            this.radio3.AutoSize = true;
+            this.radio3.Location = new System.Drawing.Point(22, 64);
+            this.radio3.Name = "radio3";
+            this.radio3.Size = new System.Drawing.Size(54, 24);
+            this.radio3.TabIndex = 2;
+            this.radio3.TabStop = true;
+            this.radio3.Text = "Ср";
+            this.radio3.UseVisualStyleBackColor = true;
+            // 
+            // radio4
+            // 
+            this.radio4.AutoSize = true;
+            this.radio4.Location = new System.Drawing.Point(157, 4);
+            this.radio4.Name = "radio4";
+            this.radio4.Size = new System.Drawing.Size(55, 24);
+            this.radio4.TabIndex = 3;
+            this.radio4.TabStop = true;
+            this.radio4.Text = "Чт";
+            this.radio4.UseVisualStyleBackColor = true;
+            // 
+            // radio5
+            // 
+            this.radio5.AutoSize = true;
+            this.radio5.Location = new System.Drawing.Point(157, 34);
+            this.radio5.Name = "radio5";
+            this.radio5.Size = new System.Drawing.Size(55, 24);
+            this.radio5.TabIndex = 4;
+            this.radio5.TabStop = true;
+            this.radio5.Text = "Пт";
+            this.radio5.UseVisualStyleBackColor = true;
+            // 
+            // radio6
+            // 
+            this.radio6.AutoSize = true;
+            this.radio6.Location = new System.Drawing.Point(157, 64);
+            this.radio6.Name = "radio6";
+            this.radio6.Size = new System.Drawing.Size(54, 24);
+            this.radio6.TabIndex = 5;
+            this.radio6.TabStop = true;
+            this.radio6.Text = "Сб";
+            this.radio6.UseVisualStyleBackColor = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 466);
+            this.ClientSize = new System.Drawing.Size(527, 576);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.textDay);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.TextAdd);
             this.Controls.Add(this.textLesson);
             this.Controls.Add(this.textGroup);
@@ -263,6 +373,8 @@ namespace Timetable
             this.MinimizeBox = false;
             this.Name = "Form2";
             this.Text = "Добавление записи";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,5 +400,14 @@ namespace Timetable
         private System.Windows.Forms.Label textGroup;
         private System.Windows.Forms.Label textLesson;
         private System.Windows.Forms.Label TextAdd;
+        private System.Windows.Forms.Label textDay;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radio6;
+        private System.Windows.Forms.RadioButton radio5;
+        private System.Windows.Forms.RadioButton radio4;
+        private System.Windows.Forms.RadioButton radio3;
+        private System.Windows.Forms.RadioButton radio2;
+        private System.Windows.Forms.RadioButton radio1;
     }
 }

@@ -31,6 +31,13 @@ namespace Timetable
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.buttonChange = new System.Windows.Forms.Button();
             this.buttonFind = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
@@ -47,8 +54,10 @@ namespace Timetable
             this.TitleLesson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeLesson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.Phone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -57,6 +66,10 @@ namespace Timetable
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(175)))), ((int)(((byte)(230)))));
+            this.panelMenu.Controls.Add(this.label4);
+            this.panelMenu.Controls.Add(this.panel1);
+            this.panelMenu.Controls.Add(this.textBox1);
+            this.panelMenu.Controls.Add(this.label3);
             this.panelMenu.Controls.Add(this.buttonChange);
             this.panelMenu.Controls.Add(this.buttonFind);
             this.panelMenu.Controls.Add(this.buttonAdd);
@@ -68,41 +81,114 @@ namespace Timetable
             this.panelMenu.Size = new System.Drawing.Size(277, 526);
             this.panelMenu.TabIndex = 0;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 9F);
+            this.label4.Location = new System.Drawing.Point(34, 133);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 24);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "label4";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioButton3);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.radioButton1);
+            this.panel1.Location = new System.Drawing.Point(36, 198);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 105);
+            this.panel1.TabIndex = 6;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Palatino Linotype", 10F);
+            this.radioButton3.Location = new System.Drawing.Point(14, 71);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(105, 31);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Группа";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Palatino Linotype", 10F);
+            this.radioButton2.Location = new System.Drawing.Point(14, 37);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(95, 31);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Время";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Palatino Linotype", 10F);
+            this.radioButton1.Location = new System.Drawing.Point(14, 3);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(179, 31);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Преподаватель";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(34, 89);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(205, 37);
+            this.textBox1.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(34, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(180, 27);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Критерии поиска:";
+            // 
             // buttonChange
             // 
             this.buttonChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonChange.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChange.Location = new System.Drawing.Point(34, 297);
+            this.buttonChange.Location = new System.Drawing.Point(36, 471);
             this.buttonChange.Name = "buttonChange";
             this.buttonChange.Size = new System.Drawing.Size(205, 43);
             this.buttonChange.TabIndex = 4;
             this.buttonChange.Text = "Изменение записи";
             this.buttonChange.UseVisualStyleBackColor = true;
-            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
+            this.buttonChange.Click += new System.EventHandler(this.ButtonChange_Click);
             // 
             // buttonFind
             // 
             this.buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFind.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFind.Location = new System.Drawing.Point(34, 145);
+            this.buttonFind.Location = new System.Drawing.Point(34, 309);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(205, 43);
             this.buttonFind.TabIndex = 3;
-            this.buttonFind.Text = "Поиск";
+            this.buttonFind.Text = "Найти";
             this.buttonFind.UseVisualStyleBackColor = true;
-            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
+            this.buttonFind.Click += new System.EventHandler(this.ButtonFind_Click);
             // 
             // buttonAdd
             // 
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdd.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(34, 220);
+            this.buttonAdd.Location = new System.Drawing.Point(36, 412);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(205, 43);
             this.buttonAdd.TabIndex = 2;
-            this.buttonAdd.Text = "Добавление записи";
+            this.buttonAdd.Text = "Добавить запись";
             this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
             // buttonStart
             // 
@@ -110,14 +196,14 @@ namespace Timetable
             this.buttonStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStart.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonStart.Location = new System.Drawing.Point(34, 47);
+            this.buttonStart.Location = new System.Drawing.Point(31, 13);
             this.buttonStart.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(205, 69);
             this.buttonStart.TabIndex = 0;
             this.buttonStart.Text = "Информация об авторе";
             this.buttonStart.UseVisualStyleBackColor = false;
-            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            this.buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // panelTitle
             // 
@@ -203,6 +289,7 @@ namespace Timetable
             this.TitleLesson,
             this.TypeLesson,
             this.Group,
+            this.Day,
             this.Time});
             this.dataGridView1.Location = new System.Drawing.Point(73, 52);
             this.dataGridView1.MultiSelect = false;
@@ -227,14 +314,15 @@ namespace Timetable
             this.TitleLesson.MinimumWidth = 8;
             this.TitleLesson.Name = "TitleLesson";
             this.TitleLesson.ReadOnly = true;
-            this.TitleLesson.Width = 150;
+            this.TitleLesson.Width = 180;
             // 
             // TypeLesson
             // 
             this.TypeLesson.HeaderText = "Тип занятия";
             this.TypeLesson.MinimumWidth = 8;
             this.TypeLesson.Name = "TypeLesson";
-            this.TypeLesson.Width = 150;
+            this.TypeLesson.ReadOnly = true;
+            this.TypeLesson.Width = 120;
             // 
             // Group
             // 
@@ -242,7 +330,13 @@ namespace Timetable
             this.Group.MinimumWidth = 8;
             this.Group.Name = "Group";
             this.Group.ReadOnly = true;
-            this.Group.Width = 150;
+            // 
+            // Day
+            // 
+            this.Day.HeaderText = "День недели";
+            this.Day.MinimumWidth = 8;
+            this.Day.Name = "Day";
+            this.Day.ReadOnly = true;
             // 
             // Time
             // 
@@ -250,7 +344,6 @@ namespace Timetable
             this.Time.MinimumWidth = 8;
             this.Time.Name = "Time";
             this.Time.ReadOnly = true;
-            this.Time.Width = 150;
             // 
             // Form1
             // 
@@ -267,6 +360,9 @@ namespace Timetable
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Расписание";
             this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panelTitle.ResumeLayout(false);
             this.Phone.ResumeLayout(false);
             this.Phone.PerformLayout();
@@ -284,17 +380,25 @@ namespace Timetable
         private System.Windows.Forms.Panel Phone;
         private System.Windows.Forms.Button buttonFind;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Teacher;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TitleLesson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TypeLesson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Group;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button buttonChange;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button Change;
         private System.Windows.Forms.Button Save;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Teacher;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TitleLesson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeLesson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Group;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Day;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
     }
 }
 

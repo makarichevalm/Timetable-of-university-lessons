@@ -19,7 +19,7 @@ namespace Timetable
         {
             InitializeComponent();
         }
-        private void buttonStart_Click(object sender, EventArgs e)
+        private void ButtonStart_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"Автор: студент группы 20ВП1 Макаричева Е.М.{Environment.NewLine}Вариант 15{Environment.NewLine}Тема: Расписание занятий в университете", "Информация");
            // string path = @"D:\2 курс\2 ООП (C#)\курсовая\Timetable-of-university-lessons\Timetable\timetableData.json";
@@ -27,16 +27,16 @@ namespace Timetable
             //if (fileInfo.Exists)
                 //label2.Text = $"Имя файла: {fileInfo.Name}";
         }
-        private void buttonChange_Click(object sender, EventArgs e)
+        private void ButtonChange_Click(object sender, EventArgs e)
         {
             Form3 FormChange = new Form3();
             FormChange.ShowDialog();
         }
 
-        private void buttonFind_Click(object sender, EventArgs e)
+        private void ButtonFind_Click(object sender, EventArgs e)
         {
         }
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             Form2 FormAdd = new Form2();
             FormAdd.ShowDialog();
@@ -44,6 +44,7 @@ namespace Timetable
             string lessonBox = Form2.LessonBox;
             string typeBox = Form2.TypeBox;
             string groupBox = Form2.GroupBox;
+            string dayBox = Form2.DayBox;
             string timeBox = Form2.TimeBox;
             //int rowNumber = dgv.Rows.Add();
             //FormAdd.Group = 
@@ -67,13 +68,14 @@ namespace Timetable
             }*/
             if(!string.IsNullOrEmpty(teacherBox) && !string.IsNullOrEmpty(lessonBox) && !string.IsNullOrEmpty(typeBox) 
                 && !string.IsNullOrEmpty(groupBox) && !string.IsNullOrEmpty(timeBox)) { 
-                stroke.Add(new StringTable(teacherBox, lessonBox, typeBox, groupBox, timeBox));
+                stroke.Add(new StringTable(teacherBox, lessonBox, typeBox, groupBox, dayBox, timeBox));
                 dataGridView1.Rows.Add();
                 dataGridView1.Rows[rownumb].Cells[0].Value = (Convert.ToString(teacherBox));
                 dataGridView1.Rows[rownumb].Cells[1].Value = (Convert.ToString(lessonBox));
                 dataGridView1.Rows[rownumb].Cells[2].Value = (Convert.ToString(typeBox));
                 dataGridView1.Rows[rownumb].Cells[3].Value = (Convert.ToString(groupBox));
-                dataGridView1.Rows[rownumb].Cells[4].Value = (Convert.ToString(timeBox));
+                dataGridView1.Rows[rownumb].Cells[4].Value = (Convert.ToString(dayBox));
+                dataGridView1.Rows[rownumb].Cells[5].Value = (Convert.ToString(timeBox));
                 rownumb++;
             }
         }
@@ -91,15 +93,17 @@ namespace Timetable
                 string lesson = dataGridView1.SelectedCells[1].Value.ToString();
                 string typeLesson = dataGridView1.SelectedCells[2].Value.ToString();
                 string group = dataGridView1.SelectedCells[3].Value.ToString();
-                string time = dataGridView1.SelectedCells[4].Value.ToString();
+                string day = dataGridView1.SelectedCells[4].Value.ToString();
+                string time = dataGridView1.SelectedCells[5].Value.ToString();
                 //label2.Text = teacher + "--" + lesson + "--" + typeLesson + "--" + group + "--" + time; //Convert.ToString(selectCount);
                 foreach (var str in stroke)
                 {
                     if (teacher == str.Teacher && lesson == str.Lesson && typeLesson == str.TypeLesson
-                        && group == str.Group && time == str.Time)
+                        && group == str.Group && day == str.Day && time == str.Time)
                     {
                         stroke.Remove(str);
                         dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                        rownumb--;
                         break;
                     }
                 }
@@ -109,9 +113,10 @@ namespace Timetable
                 MessageBox.Show("Выберите данные для удаления!");
                 return;
             }
+            label2.Text = "";
                 foreach (var str in stroke)
                 {
-                    label2.Text += str.Teacher + "--" + str.Lesson + "--" + str.TypeLesson + "--" + str.Group + "--" + str.Time + "\n";
+                    label2.Text += str.Teacher + "--" + str.Lesson + "--" + str.TypeLesson + "--" + str.Group + "--" + str.Day + "--" + str.Time + "\n";
                 }
             }
     }
