@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,11 +27,6 @@ namespace Timetable
             //FileInfo fileInfo = new FileInfo(path);
             //if (fileInfo.Exists)
                 //label2.Text = $"Имя файла: {fileInfo.Name}";
-        }
-        private void ButtonChange_Click(object sender, EventArgs e)
-        {
-            Form3 FormChange = new Form3();
-            FormChange.ShowDialog();
         }
 
         private void ButtonFind_Click(object sender, EventArgs e)
@@ -81,6 +77,10 @@ namespace Timetable
         }
         private void Save_Click(object sender, EventArgs e)
         {
+            /*File.WriteAllText("timetableData.json", JsonConvert.SerializeObject(
+        stroke.Select(str => new { url = hash }),
+        Formatting.Indented));
+            File.WriteAllText("timetableData.json", stroke, Formatting.Indented);*/
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -119,5 +119,44 @@ namespace Timetable
                     label2.Text += str.Teacher + "--" + str.Lesson + "--" + str.TypeLesson + "--" + str.Group + "--" + str.Day + "--" + str.Time + "\n";
                 }
             }
+
+        private void Change_Click(object sender, EventArgs e)
+        {
+            /*Int32 selectCount =
+        dataGridView1.GetCellCount(DataGridViewElementStates.Selected);
+            if (selectCount > 0)
+            {
+                string teacher = dataGridView1.SelectedCells[0].Value.ToString();
+                string lesson = dataGridView1.SelectedCells[1].Value.ToString();
+                string typeLesson = dataGridView1.SelectedCells[2].Value.ToString();
+                string group = dataGridView1.SelectedCells[3].Value.ToString();
+                string day = dataGridView1.SelectedCells[4].Value.ToString();
+                string time = dataGridView1.SelectedCells[5].Value.ToString();
+                //label2.Text = teacher + "--" + lesson + "--" + typeLesson + "--" + group + "--" + time; //Convert.ToString(selectCount);
+                foreach (var str in stroke)
+                {
+                    if (teacher == str.Teacher && lesson == str.Lesson && typeLesson == str.TypeLesson
+                        && group == str.Group && day == str.Day && time == str.Time)
+                    {
+                        Form3 FormChange = new Form3(str);
+                        FormChange.ShowDialog();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите данные для удаления!");
+                return;
+            }
+        */
+            Form3 FormChange = new Form3();
+            FormChange.ShowDialog();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Form FormInfo = new FormInfo();
+            FormInfo.ShowDialog();
+        }
     }
 }
