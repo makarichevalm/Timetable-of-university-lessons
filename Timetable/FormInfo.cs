@@ -16,14 +16,12 @@ namespace Timetable
         {
             InitializeComponent();
         }
-
         private void FormInfo_Load(object sender, EventArgs e)
         {
             timer1.Interval = 1000;
             progressBar1.Maximum = 10;//10 sek
             timer1.Enabled = true;
         }
-
         private void Timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Increment(1);

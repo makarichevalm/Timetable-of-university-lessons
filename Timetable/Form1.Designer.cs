@@ -31,7 +31,8 @@ namespace Timetable
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.textFind = new System.Windows.Forms.TextBox();
+            this.buttonDeleteAll = new System.Windows.Forms.Button();
+            this.buttonFiltrOff = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -41,11 +42,9 @@ namespace Timetable
             this.label3 = new System.Windows.Forms.Label();
             this.buttonFiltr = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.buttonStart = new System.Windows.Forms.Button();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Phone = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.Change = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
@@ -56,7 +55,6 @@ namespace Timetable
             this.Group = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonFind = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelTitle.SuspendLayout();
@@ -67,15 +65,14 @@ namespace Timetable
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(175)))), ((int)(((byte)(230)))));
-            this.panelMenu.Controls.Add(this.buttonFind);
-            this.panelMenu.Controls.Add(this.textFind);
+            this.panelMenu.Controls.Add(this.buttonDeleteAll);
+            this.panelMenu.Controls.Add(this.buttonFiltrOff);
             this.panelMenu.Controls.Add(this.label4);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Controls.Add(this.textFiltr);
             this.panelMenu.Controls.Add(this.label3);
             this.panelMenu.Controls.Add(this.buttonFiltr);
             this.panelMenu.Controls.Add(this.buttonAdd);
-            this.panelMenu.Controls.Add(this.buttonStart);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -83,29 +80,48 @@ namespace Timetable
             this.panelMenu.Size = new System.Drawing.Size(277, 557);
             this.panelMenu.TabIndex = 0;
             // 
-            // textFind
+            // buttonDeleteAll
             // 
-            this.textFind.Location = new System.Drawing.Point(34, 432);
-            this.textFind.Name = "textFind";
-            this.textFind.Size = new System.Drawing.Size(205, 37);
-            this.textFind.TabIndex = 15;
+            this.buttonDeleteAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
+            this.buttonDeleteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDeleteAll.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteAll.Location = new System.Drawing.Point(34, 451);
+            this.buttonDeleteAll.Name = "buttonDeleteAll";
+            this.buttonDeleteAll.Size = new System.Drawing.Size(205, 43);
+            this.buttonDeleteAll.TabIndex = 17;
+            this.buttonDeleteAll.Text = "Очистить всё";
+            this.buttonDeleteAll.UseVisualStyleBackColor = false;
+            this.buttonDeleteAll.Click += new System.EventHandler(this.ButtonDeleteAll_Click);
+            // 
+            // buttonFiltrOff
+            // 
+            this.buttonFiltrOff.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
+            this.buttonFiltrOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFiltrOff.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.buttonFiltrOff.Location = new System.Drawing.Point(35, 379);
+            this.buttonFiltrOff.Name = "buttonFiltrOff";
+            this.buttonFiltrOff.Size = new System.Drawing.Size(205, 66);
+            this.buttonFiltrOff.TabIndex = 16;
+            this.buttonFiltrOff.Text = "Сбросить фильтрацию";
+            this.buttonFiltrOff.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 9F);
-            this.label4.Location = new System.Drawing.Point(34, 188);
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 10F);
+            this.label4.ForeColor = System.Drawing.Color.Indigo;
+            this.label4.Location = new System.Drawing.Point(30, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 24);
+            this.label4.Size = new System.Drawing.Size(56, 27);
             this.label4.TabIndex = 14;
-            this.label4.Text = "label4";
+            this.label4.Text = "label";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.radioButton3);
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton1);
-            this.panel1.Location = new System.Drawing.Point(34, 259);
+            this.panel1.Location = new System.Drawing.Point(35, 215);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(205, 105);
             this.panel1.TabIndex = 6;
@@ -148,7 +164,7 @@ namespace Timetable
             // 
             // textFiltr
             // 
-            this.textFiltr.Location = new System.Drawing.Point(34, 143);
+            this.textFiltr.Location = new System.Drawing.Point(35, 92);
             this.textFiltr.Name = "textFiltr";
             this.textFiltr.Size = new System.Drawing.Size(205, 37);
             this.textFiltr.TabIndex = 13;
@@ -157,7 +173,7 @@ namespace Timetable
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(34, 222);
+            this.label3.Location = new System.Drawing.Point(30, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(236, 27);
             this.label3.TabIndex = 10;
@@ -165,42 +181,29 @@ namespace Timetable
             // 
             // buttonFiltr
             // 
+            this.buttonFiltr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
             this.buttonFiltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFiltr.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFiltr.Location = new System.Drawing.Point(34, 376);
+            this.buttonFiltr.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.buttonFiltr.Location = new System.Drawing.Point(35, 326);
             this.buttonFiltr.Name = "buttonFiltr";
             this.buttonFiltr.Size = new System.Drawing.Size(205, 43);
             this.buttonFiltr.TabIndex = 3;
             this.buttonFiltr.Text = "Фильтровать";
-            this.buttonFiltr.UseVisualStyleBackColor = true;
+            this.buttonFiltr.UseVisualStyleBackColor = false;
             this.buttonFiltr.Click += new System.EventHandler(this.ButtonFind_Click);
             // 
             // buttonAdd
             // 
+            this.buttonAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
             this.buttonAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdd.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(34, 89);
+            this.buttonAdd.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.buttonAdd.Location = new System.Drawing.Point(34, 32);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(205, 43);
             this.buttonAdd.TabIndex = 2;
             this.buttonAdd.Text = "Добавить запись";
-            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
-            // 
-            // buttonStart
-            // 
-            this.buttonStart.AllowDrop = true;
-            this.buttonStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
-            this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonStart.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonStart.Location = new System.Drawing.Point(34, 13);
-            this.buttonStart.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(205, 69);
-            this.buttonStart.TabIndex = 0;
-            this.buttonStart.Text = "Информация об авторе";
-            this.buttonStart.UseVisualStyleBackColor = false;
-            this.buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
             // 
             // panelTitle
             // 
@@ -215,7 +218,7 @@ namespace Timetable
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Palatino Linotype", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.label1.Location = new System.Drawing.Point(294, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -227,7 +230,6 @@ namespace Timetable
             // Phone
             // 
             this.Phone.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(242)))), ((int)(((byte)(251)))));
-            this.Phone.Controls.Add(this.label2);
             this.Phone.Controls.Add(this.Change);
             this.Phone.Controls.Add(this.Save);
             this.Phone.Controls.Add(this.Delete);
@@ -238,18 +240,10 @@ namespace Timetable
             this.Phone.Size = new System.Drawing.Size(940, 503);
             this.Phone.TabIndex = 2;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(73, 243);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 23);
-            this.label2.TabIndex = 5;
-            // 
             // Change
             // 
             this.Change.Font = new System.Drawing.Font("MV Boli", 10F);
-            this.Change.Location = new System.Drawing.Point(713, 315);
+            this.Change.Location = new System.Drawing.Point(702, 390);
             this.Change.Name = "Change";
             this.Change.Size = new System.Drawing.Size(108, 50);
             this.Change.TabIndex = 4;
@@ -260,7 +254,7 @@ namespace Timetable
             // Save
             // 
             this.Save.Font = new System.Drawing.Font("MV Boli", 10F);
-            this.Save.Location = new System.Drawing.Point(422, 315);
+            this.Save.Location = new System.Drawing.Point(409, 390);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(108, 50);
             this.Save.TabIndex = 3;
@@ -271,7 +265,7 @@ namespace Timetable
             // Delete
             // 
             this.Delete.Font = new System.Drawing.Font("MV Boli", 10F);
-            this.Delete.Location = new System.Drawing.Point(147, 315);
+            this.Delete.Location = new System.Drawing.Point(145, 390);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(108, 50);
             this.Delete.TabIndex = 2;
@@ -293,13 +287,13 @@ namespace Timetable
             this.Group,
             this.Day,
             this.Time});
-            this.dataGridView1.Location = new System.Drawing.Point(33, 52);
+            this.dataGridView1.Location = new System.Drawing.Point(29, 17);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(876, 182);
+            this.dataGridView1.Size = new System.Drawing.Size(876, 313);
             this.dataGridView1.TabIndex = 0;
             // 
             // Teacher
@@ -351,17 +345,6 @@ namespace Timetable
             this.Time.ReadOnly = true;
             this.Time.Width = 130;
             // 
-            // buttonFind
-            // 
-            this.buttonFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFind.Font = new System.Drawing.Font("Palatino Linotype", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFind.Location = new System.Drawing.Point(34, 488);
-            this.buttonFind.Name = "buttonFind";
-            this.buttonFind.Size = new System.Drawing.Size(205, 43);
-            this.buttonFind.TabIndex = 16;
-            this.buttonFind.Text = "Поиск";
-            this.buttonFind.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -383,7 +366,6 @@ namespace Timetable
             this.panel1.PerformLayout();
             this.panelTitle.ResumeLayout(false);
             this.Phone.ResumeLayout(false);
-            this.Phone.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -394,7 +376,6 @@ namespace Timetable
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Panel Phone;
         private System.Windows.Forms.Button buttonFiltr;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -402,7 +383,6 @@ namespace Timetable
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button Change;
         private System.Windows.Forms.Button Save;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textFiltr;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
@@ -416,8 +396,8 @@ namespace Timetable
         private System.Windows.Forms.DataGridViewTextBoxColumn Group;
         private System.Windows.Forms.DataGridViewTextBoxColumn Day;
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.TextBox textFind;
-        private System.Windows.Forms.Button buttonFind;
+        private System.Windows.Forms.Button buttonFiltrOff;
+        private System.Windows.Forms.Button buttonDeleteAll;
     }
 }
 

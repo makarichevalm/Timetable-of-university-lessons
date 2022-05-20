@@ -57,7 +57,7 @@ namespace Timetable
                 textTeacher.ForeColor = Color.Red;
                 flag = true;
             }
-            if (!radio1.Checked && !radio2.Checked && !radio3.Checked && !radio4.Checked && !radio5.Checked && !radio6.Checked)
+            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked && !radioButton4.Checked && !radioButton5.Checked && !radioButton6.Checked)
             {
                 textDay.Text = "Заполните поле <День недели>";
                 textDay.ForeColor = Color.Red;
@@ -111,18 +111,18 @@ namespace Timetable
                 TypeBox = typeLesson.Text;
                 GroupBox = group.Text;
                 TimeBox = time.Text;
-                if (radio1.Checked)
-                    DayBox = radio1.Text;
-                if (radio2.Checked)
-                    DayBox = radio2.Text;
-                if (radio3.Checked)
-                    DayBox = radio3.Text;
-                if (radio4.Checked)
-                    DayBox = radio4.Text;
-                if (radio5.Checked)
-                    DayBox = radio5.Text;
-                if (radio6.Checked)
-                    DayBox = radio6.Text;
+                if (radioButton1.Checked)
+                    DayBox = radioButton1.Text;
+                if (radioButton2.Checked)
+                    DayBox = radioButton2.Text;
+                if (radioButton3.Checked)
+                    DayBox = radioButton3.Text;
+                if (radioButton4.Checked)
+                    DayBox = radioButton4.Text;
+                if (radioButton5.Checked)
+                    DayBox = radioButton5.Text;
+                if (radioButton6.Checked)
+                    DayBox = radioButton6.Text;
                 Close();
             }   
         }

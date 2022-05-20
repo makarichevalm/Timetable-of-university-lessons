@@ -51,12 +51,12 @@ namespace Timetable
             this.textDay = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radio1 = new System.Windows.Forms.RadioButton();
-            this.radio2 = new System.Windows.Forms.RadioButton();
-            this.radio3 = new System.Windows.Forms.RadioButton();
-            this.radio4 = new System.Windows.Forms.RadioButton();
-            this.radio5 = new System.Windows.Forms.RadioButton();
-            this.radio6 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -265,82 +265,82 @@ namespace Timetable
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.radio6);
-            this.panel1.Controls.Add(this.radio5);
-            this.panel1.Controls.Add(this.radio4);
-            this.panel1.Controls.Add(this.radio3);
-            this.panel1.Controls.Add(this.radio2);
-            this.panel1.Controls.Add(this.radio1);
+            this.panel1.Controls.Add(this.radioButton6);
+            this.panel1.Controls.Add(this.radioButton5);
+            this.panel1.Controls.Add(this.radioButton4);
+            this.panel1.Controls.Add(this.radioButton3);
+            this.panel1.Controls.Add(this.radioButton2);
+            this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Location = new System.Drawing.Point(203, 414);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 95);
             this.panel1.TabIndex = 23;
             // 
-            // radio1
+            // radioButton6
             // 
-            this.radio1.AutoSize = true;
-            this.radio1.Location = new System.Drawing.Point(22, 4);
-            this.radio1.Name = "radio1";
-            this.radio1.Size = new System.Drawing.Size(55, 24);
-            this.radio1.TabIndex = 0;
-            this.radio1.TabStop = true;
-            this.radio1.Text = "Пн";
-            this.radio1.UseVisualStyleBackColor = true;
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(157, 64);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(54, 24);
+            this.radioButton6.TabIndex = 5;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "Сб";
+            this.radioButton6.UseVisualStyleBackColor = true;
             // 
-            // radio2
+            // radioButton5
             // 
-            this.radio2.AutoSize = true;
-            this.radio2.Location = new System.Drawing.Point(22, 34);
-            this.radio2.Name = "radio2";
-            this.radio2.Size = new System.Drawing.Size(54, 24);
-            this.radio2.TabIndex = 1;
-            this.radio2.TabStop = true;
-            this.radio2.Text = "Вт";
-            this.radio2.UseVisualStyleBackColor = true;
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(157, 34);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(55, 24);
+            this.radioButton5.TabIndex = 4;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Пт";
+            this.radioButton5.UseVisualStyleBackColor = true;
             // 
-            // radio3
+            // radioButton4
             // 
-            this.radio3.AutoSize = true;
-            this.radio3.Location = new System.Drawing.Point(22, 64);
-            this.radio3.Name = "radio3";
-            this.radio3.Size = new System.Drawing.Size(54, 24);
-            this.radio3.TabIndex = 2;
-            this.radio3.TabStop = true;
-            this.radio3.Text = "Ср";
-            this.radio3.UseVisualStyleBackColor = true;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(157, 4);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(55, 24);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Чт";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // radio4
+            // radioButton3
             // 
-            this.radio4.AutoSize = true;
-            this.radio4.Location = new System.Drawing.Point(157, 4);
-            this.radio4.Name = "radio4";
-            this.radio4.Size = new System.Drawing.Size(55, 24);
-            this.radio4.TabIndex = 3;
-            this.radio4.TabStop = true;
-            this.radio4.Text = "Чт";
-            this.radio4.UseVisualStyleBackColor = true;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(22, 64);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(54, 24);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Ср";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // radio5
+            // radioButton2
             // 
-            this.radio5.AutoSize = true;
-            this.radio5.Location = new System.Drawing.Point(157, 34);
-            this.radio5.Name = "radio5";
-            this.radio5.Size = new System.Drawing.Size(55, 24);
-            this.radio5.TabIndex = 4;
-            this.radio5.TabStop = true;
-            this.radio5.Text = "Пт";
-            this.radio5.UseVisualStyleBackColor = true;
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(22, 34);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(54, 24);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Вт";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // radio6
+            // radioButton1
             // 
-            this.radio6.AutoSize = true;
-            this.radio6.Location = new System.Drawing.Point(157, 64);
-            this.radio6.Name = "radio6";
-            this.radio6.Size = new System.Drawing.Size(54, 24);
-            this.radio6.TabIndex = 5;
-            this.radio6.TabStop = true;
-            this.radio6.Text = "Сб";
-            this.radio6.UseVisualStyleBackColor = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(22, 4);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(55, 24);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Пн";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
@@ -403,11 +403,11 @@ namespace Timetable
         private System.Windows.Forms.Label textDay;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton radio6;
-        private System.Windows.Forms.RadioButton radio5;
-        private System.Windows.Forms.RadioButton radio4;
-        private System.Windows.Forms.RadioButton radio3;
-        private System.Windows.Forms.RadioButton radio2;
-        private System.Windows.Forms.RadioButton radio1;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
