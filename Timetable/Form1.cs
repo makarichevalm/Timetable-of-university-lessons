@@ -127,7 +127,7 @@ namespace Timetable
             }
             else
             {
-                MessageBox.Show("Выберите данные для редактирования!", "Редактирование", 0, MessageBoxIcon.Exclamation);
+                MessageBox.Show($"Данных не существует! {Environment.NewLine} Добавьте записи.", "Редактирование", 0, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -167,8 +167,115 @@ namespace Timetable
             }
             File.Delete(FILE);
         }
-        private void ButtonFind_Click(object sender, EventArgs e)
+        private void ButtonFiltr_Click(object sender, EventArgs e)
         {
+            label4.Text = "";
+            if (string.IsNullOrEmpty(textFiltr.Text))
+            {
+                label4.Text = "Заполните поле";
+                label4.ForeColor = Color.Maroon;
+                return;
+            }
+            if (!radioButton1.Checked && !radioButton2.Checked && !radioButton3.Checked)
+            {
+                MessageBox.Show("Выберите критерий фильтрации!", "Фильтрация", 0, MessageBoxIcon.Exclamation);
+                return;
+            }
+            string filtrText = textFiltr.Text;
+            dataGridView1.Rows.Clear();
+            rownumb = 0;
+            if (radioButton1.Checked)
+                FilteringByTeacher(filtrText);
+            else if (radioButton2.Checked)
+                FilteringByTime(filtrText);
+            else
+                FilteringByGroup(filtrText);
+            
+        }
+        private void FilteringByTeacher(string textFiltr)
+        {
+            bool fl = false;
+            foreach (var str in stroke)
+            {
+                if(str.Teacher == textFiltr)
+                {
+                    fl = true;
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[rownumb].Cells[0].Value = str.Teacher;
+                    dataGridView1.Rows[rownumb].Cells[1].Value = str.Lesson;
+                    dataGridView1.Rows[rownumb].Cells[2].Value = str.TypeLesson;
+                    dataGridView1.Rows[rownumb].Cells[3].Value = str.Group;
+                    dataGridView1.Rows[rownumb].Cells[4].Value = str.Day;
+                    dataGridView1.Rows[rownumb].Cells[5].Value = str.Time;
+                    rownumb++;
+                }
+            }
+            if (fl == false)
+                MessageBox.Show($"Данные о занятости преподавателя {textFiltr} не найдены!", "Фильтрация", 0, MessageBoxIcon.Information) ;
+        }
+        private void FilteringByTime(string textFiltr)
+        {
+            bool fl = false;
+            foreach (var str in stroke)
+            {
+                if (str.Time == textFiltr)
+                {
+                    fl = true;
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[rownumb].Cells[0].Value = str.Teacher;
+                    dataGridView1.Rows[rownumb].Cells[1].Value = str.Lesson;
+                    dataGridView1.Rows[rownumb].Cells[2].Value = str.TypeLesson;
+                    dataGridView1.Rows[rownumb].Cells[3].Value = str.Group;
+                    dataGridView1.Rows[rownumb].Cells[4].Value = str.Day;
+                    dataGridView1.Rows[rownumb].Cells[5].Value = str.Time;
+                    rownumb++;
+                }
+            }
+            if (fl == false)
+                MessageBox.Show($"В расписании время {textFiltr} не занято!", "Фильтрация", 0, MessageBoxIcon.Information);
+        }
+        private void FilteringByGroup(string textFiltr)
+        {
+            bool fl = false;
+            foreach (var str in stroke)
+            {
+                if (str.Group == textFiltr)
+                {
+                    fl = true;
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[rownumb].Cells[0].Value = str.Teacher;
+                    dataGridView1.Rows[rownumb].Cells[1].Value = str.Lesson;
+                    dataGridView1.Rows[rownumb].Cells[2].Value = str.TypeLesson;
+                    dataGridView1.Rows[rownumb].Cells[3].Value = str.Group;
+                    dataGridView1.Rows[rownumb].Cells[4].Value = str.Day;
+                    dataGridView1.Rows[rownumb].Cells[5].Value = str.Time;
+                    rownumb++;
+                }
+            }
+            if (fl == false)
+                MessageBox.Show($"Данные о занятости группы {textFiltr} не найдены!", "Фильтрация", 0, MessageBoxIcon.Information) ;
+        }
+        private void buttonFiltrOff_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textFiltr.Text))
+            {
+                MessageBox.Show($"Фильтрация не применена!", "Фильтрация", 0, MessageBoxIcon.Information);
+                return;
+            }
+            textFiltr.Text = "";
+            dataGridView1.Rows.Clear();
+            rownumb = 0;
+            foreach (var str in stroke)
+            {
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[rownumb].Cells[0].Value = str.Teacher;
+                dataGridView1.Rows[rownumb].Cells[1].Value = str.Lesson;
+                dataGridView1.Rows[rownumb].Cells[2].Value = str.TypeLesson;
+                dataGridView1.Rows[rownumb].Cells[3].Value = str.Group;
+                dataGridView1.Rows[rownumb].Cells[4].Value = str.Day;
+                dataGridView1.Rows[rownumb].Cells[5].Value = str.Time;
+                rownumb++;
+            }
         }
     }
 }

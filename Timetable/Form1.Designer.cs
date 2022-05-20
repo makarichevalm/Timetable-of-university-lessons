@@ -31,6 +31,7 @@ namespace Timetable
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonFiltr = new System.Windows.Forms.Button();
             this.buttonDeleteAll = new System.Windows.Forms.Button();
             this.buttonFiltrOff = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@ namespace Timetable
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.textFiltr = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.buttonFiltr = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,13 +65,13 @@ namespace Timetable
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(218)))), ((int)(((byte)(175)))), ((int)(((byte)(230)))));
+            this.panelMenu.Controls.Add(this.buttonFiltr);
             this.panelMenu.Controls.Add(this.buttonDeleteAll);
             this.panelMenu.Controls.Add(this.buttonFiltrOff);
             this.panelMenu.Controls.Add(this.label4);
             this.panelMenu.Controls.Add(this.panel1);
             this.panelMenu.Controls.Add(this.textFiltr);
             this.panelMenu.Controls.Add(this.label3);
-            this.panelMenu.Controls.Add(this.buttonFiltr);
             this.panelMenu.Controls.Add(this.buttonAdd);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -79,6 +79,19 @@ namespace Timetable
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(277, 557);
             this.panelMenu.TabIndex = 0;
+            // 
+            // buttonFiltr
+            // 
+            this.buttonFiltr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
+            this.buttonFiltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFiltr.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFiltr.Location = new System.Drawing.Point(35, 326);
+            this.buttonFiltr.Name = "buttonFiltr";
+            this.buttonFiltr.Size = new System.Drawing.Size(205, 43);
+            this.buttonFiltr.TabIndex = 18;
+            this.buttonFiltr.Text = "Фильтровать";
+            this.buttonFiltr.UseVisualStyleBackColor = false;
+            this.buttonFiltr.Click += new System.EventHandler(this.ButtonFiltr_Click);
             // 
             // buttonDeleteAll
             // 
@@ -104,6 +117,7 @@ namespace Timetable
             this.buttonFiltrOff.TabIndex = 16;
             this.buttonFiltrOff.Text = "Сбросить фильтрацию";
             this.buttonFiltrOff.UseVisualStyleBackColor = false;
+            this.buttonFiltrOff.Click += new System.EventHandler(this.buttonFiltrOff_Click);
             // 
             // label4
             // 
@@ -112,9 +126,8 @@ namespace Timetable
             this.label4.ForeColor = System.Drawing.Color.Indigo;
             this.label4.Location = new System.Drawing.Point(30, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 27);
+            this.label4.Size = new System.Drawing.Size(0, 27);
             this.label4.TabIndex = 14;
-            this.label4.Text = "label";
             // 
             // panel1
             // 
@@ -178,19 +191,6 @@ namespace Timetable
             this.label3.Size = new System.Drawing.Size(236, 27);
             this.label3.TabIndex = 10;
             this.label3.Text = "Критерии фильтрации:";
-            // 
-            // buttonFiltr
-            // 
-            this.buttonFiltr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(114)))), ((int)(((byte)(210)))));
-            this.buttonFiltr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFiltr.Font = new System.Drawing.Font("Palatino Linotype", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.buttonFiltr.Location = new System.Drawing.Point(35, 326);
-            this.buttonFiltr.Name = "buttonFiltr";
-            this.buttonFiltr.Size = new System.Drawing.Size(205, 43);
-            this.buttonFiltr.TabIndex = 3;
-            this.buttonFiltr.Text = "Фильтровать";
-            this.buttonFiltr.UseVisualStyleBackColor = false;
-            this.buttonFiltr.Click += new System.EventHandler(this.ButtonFind_Click);
             // 
             // buttonAdd
             // 
@@ -377,7 +377,6 @@ namespace Timetable
         private System.Windows.Forms.Panel panelTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel Phone;
-        private System.Windows.Forms.Button buttonFiltr;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button buttonAdd;
@@ -398,6 +397,7 @@ namespace Timetable
         private System.Windows.Forms.DataGridViewTextBoxColumn Time;
         private System.Windows.Forms.Button buttonFiltrOff;
         private System.Windows.Forms.Button buttonDeleteAll;
+        private System.Windows.Forms.Button buttonFiltr;
     }
 }
 
