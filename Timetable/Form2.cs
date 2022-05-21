@@ -77,7 +77,7 @@ namespace Timetable
             Regex regGroup = new Regex(@"^\d{2}([А-ЯЁ]{2}|[а-яё]{2})\d$");
             if (!regTeacher.IsMatch(teacher.Text))
             {
-                textTeacher.Text = "Примеры ввода: Лутов Иван Олегович, Лутов И. О., Лутов И.О.";
+                textTeacher.Text = "Примеры ввода: Лутов Иван Олегович, Лутов И О, Лутов И.О.";
                 textTeacher.ForeColor = Color.Red;
                 flag = true;
             }
@@ -89,7 +89,7 @@ namespace Timetable
             }
                 return flag;
         }
-        private void buttonReset2_Click(object sender, EventArgs e)
+        private void ButtonReset2_Click(object sender, EventArgs e)
         {
             TeacherBox = "";
             LessonBox = "";
@@ -98,7 +98,7 @@ namespace Timetable
             TimeBox = "";
             Close();
         }
-        private void buttonOk2_Click(object sender, EventArgs e)
+        private void ButtonOk2_Click(object sender, EventArgs e)
         {
             if (IsEmpty())
                 return;

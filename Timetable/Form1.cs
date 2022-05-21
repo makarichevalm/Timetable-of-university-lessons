@@ -1,13 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Timetable
@@ -32,17 +27,49 @@ namespace Timetable
             string groupBox = Form2.GroupBox;
             string dayBox = Form2.DayBox;
             string timeBox = Form2.TimeBox;
-            if(!string.IsNullOrEmpty(teacherBox) && !string.IsNullOrEmpty(lessonBox) && !string.IsNullOrEmpty(typeBox) 
-                && !string.IsNullOrEmpty(groupBox) && !string.IsNullOrEmpty(timeBox)) { 
-                stroke.Add(new StringTable(teacherBox, lessonBox, typeBox, groupBox, dayBox, timeBox));
-                dataGridView1.Rows.Add();
-                dataGridView1.Rows[rownumb].Cells[0].Value = (Convert.ToString(teacherBox));
-                dataGridView1.Rows[rownumb].Cells[1].Value = (Convert.ToString(lessonBox));
-                dataGridView1.Rows[rownumb].Cells[2].Value = (Convert.ToString(typeBox));
-                dataGridView1.Rows[rownumb].Cells[3].Value = (Convert.ToString(groupBox));
-                dataGridView1.Rows[rownumb].Cells[4].Value = (Convert.ToString(dayBox));
-                dataGridView1.Rows[rownumb].Cells[5].Value = (Convert.ToString(timeBox));
-                rownumb++;
+            StringTable newStr = new StringTable(teacherBox, lessonBox, typeBox, groupBox, dayBox, timeBox);
+            if (!string.IsNullOrEmpty(teacherBox) && !string.IsNullOrEmpty(lessonBox) && !string.IsNullOrEmpty(typeBox)
+            && !string.IsNullOrEmpty(groupBox) && !string.IsNullOrEmpty(timeBox))
+            {
+                if (!stroke.Contains(newStr))
+                {
+                    //занят преподаватель
+                    foreach (var str in stroke)
+                    {
+                        if (str.Teacher == teacherBox && str.Day == dayBox && str.Time == timeBox)
+                        {
+                            MessageBox.Show($"У преподавателя {str.Teacher} уже есть {str.TypeLesson} " +
+                                 $"по предмету '{str.Lesson}'у группы {str.Group} в {str.Day}" +
+                                 $" в {str.Time}.", "Добавление записи", 0, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                    // занята группа
+                    foreach (var str in stroke)
+                    {
+                        if (str.Group == groupBox && str.Day == dayBox && str.Time == timeBox)
+                        {
+                            MessageBox.Show($"У группы {str.Group} уже есть {str.TypeLesson} " +
+                                $"по предмету '{str.Lesson}' преподавателя {str.Teacher} в {str.Day}" +
+                                $" в {str.Time}.", "Добавление записи", 0, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                    stroke.Add(newStr);
+                    dataGridView1.Rows.Add();
+                    dataGridView1.Rows[rownumb].Cells[0].Value = (Convert.ToString(teacherBox));
+                    dataGridView1.Rows[rownumb].Cells[1].Value = (Convert.ToString(lessonBox));
+                    dataGridView1.Rows[rownumb].Cells[2].Value = (Convert.ToString(typeBox));
+                    dataGridView1.Rows[rownumb].Cells[3].Value = (Convert.ToString(groupBox));
+                    dataGridView1.Rows[rownumb].Cells[4].Value = (Convert.ToString(dayBox));
+                    dataGridView1.Rows[rownumb].Cells[5].Value = (Convert.ToString(timeBox));
+                    rownumb++;
+                }
+                else
+                {
+                    MessageBox.Show($"Эта строка в таблице уже есть", "Добавление записи", 0, MessageBoxIcon.Information);
+                    return;
+                }
             }
         }
         private void Save_Click(object sender, EventArgs e)
@@ -107,7 +134,7 @@ namespace Timetable
                         && group == str.Group && day == str.Day && time == str.Time)
                     {
                         mainStr = str;
-                        Form3 FormChange = new Form3(str);
+                        Form3 FormChange = new Form3(str, stroke);
                         FormChange.ShowDialog();
                         str.Teacher = mainStr.Teacher;
                         str.Lesson = mainStr.Lesson;
@@ -190,7 +217,6 @@ namespace Timetable
                 FilteringByTime(filtrText);
             else
                 FilteringByGroup(filtrText);
-            
         }
         private void FilteringByTeacher(string textFiltr)
         {
@@ -255,7 +281,7 @@ namespace Timetable
             if (fl == false)
                 MessageBox.Show($"Данные о занятости группы {textFiltr} не найдены!", "Фильтрация", 0, MessageBoxIcon.Information) ;
         }
-        private void buttonFiltrOff_Click(object sender, EventArgs e)
+        private void ButtonFiltrOff_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textFiltr.Text))
             {
@@ -263,6 +289,9 @@ namespace Timetable
                 return;
             }
             textFiltr.Text = "";
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
             dataGridView1.Rows.Clear();
             rownumb = 0;
             foreach (var str in stroke)
@@ -275,6 +304,19 @@ namespace Timetable
                 dataGridView1.Rows[rownumb].Cells[4].Value = str.Day;
                 dataGridView1.Rows[rownumb].Cells[5].Value = str.Time;
                 rownumb++;
+            }
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = MessageBox.Show("Сохранить изменения?", "Сохранение", 
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            if(result == DialogResult.Yes)
+            {
+                Save_Click(sender, e);
+            }
+            if(result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
             }
         }
     }

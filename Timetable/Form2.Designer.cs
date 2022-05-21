@@ -69,7 +69,7 @@ namespace Timetable
             this.buttonReset2.TabIndex = 0;
             this.buttonReset2.Text = "Отмена";
             this.buttonReset2.UseVisualStyleBackColor = false;
-            this.buttonReset2.Click += new System.EventHandler(this.buttonReset2_Click);
+            this.buttonReset2.Click += new System.EventHandler(this.ButtonReset2_Click);
             // 
             // buttonOk2
             // 
@@ -81,7 +81,7 @@ namespace Timetable
             this.buttonOk2.TabIndex = 1;
             this.buttonOk2.Text = "Ок";
             this.buttonOk2.UseVisualStyleBackColor = false;
-            this.buttonOk2.Click += new System.EventHandler(this.buttonOk2_Click);
+            this.buttonOk2.Click += new System.EventHandler(this.ButtonOk2_Click);
             // 
             // teacher
             // 
@@ -368,6 +368,7 @@ namespace Timetable
             this.Controls.Add(this.teacher);
             this.Controls.Add(this.buttonOk2);
             this.Controls.Add(this.buttonReset2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

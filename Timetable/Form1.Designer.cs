@@ -117,7 +117,7 @@ namespace Timetable
             this.buttonFiltrOff.TabIndex = 16;
             this.buttonFiltrOff.Text = "Сбросить фильтрацию";
             this.buttonFiltrOff.UseVisualStyleBackColor = false;
-            this.buttonFiltrOff.Click += new System.EventHandler(this.buttonFiltrOff_Click);
+            this.buttonFiltrOff.Click += new System.EventHandler(this.ButtonFiltrOff_Click);
             // 
             // label4
             // 
@@ -354,11 +354,14 @@ namespace Timetable
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Расписание";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();

@@ -1,22 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Timetable
 {
     public partial class Form3 : Form
     {
-        
-        public Form3(StringTable str)//StringTable str
+        public List<StringTable> S;
+        public static StringTable Str;
+        public Form3(StringTable str, List<StringTable> s)
         {
             InitializeComponent();
+            Str = str;
+            S = s;
             teacher.Text = str.Teacher;
             lesson.Text = str.Lesson;
             typeLesson.Text = str.TypeLesson;
@@ -95,7 +93,7 @@ namespace Timetable
             Regex regGroup = new Regex(@"^\d{2}([А-ЯЁ]{2}|[а-яё]{2})\d$");
             if (!regTeacher.IsMatch(teacher.Text))
             {
-                textTeacher.Text = "Примеры ввода: Лутов Иван Олегович, Лутов И. О., Лутов И.О.";
+                textTeacher.Text = "Примеры ввода: Лутов Иван Олегович, Лутов И О, Лутов И.О.";
                 textTeacher.ForeColor = Color.Red;
                 flag = true;
             }
@@ -107,12 +105,12 @@ namespace Timetable
             }
             return flag;
         }
-        private void buttonReset3_Click(object sender, EventArgs e)
+        private void ButtonReset3_Click(object sender, EventArgs e)
         {
+            Form1.mainStr = Str;
             Close();
         }
-
-        private void buttonOk3_Click(object sender, EventArgs e)
+        private void ButtonOk3_Click(object sender, EventArgs e)
         {
             if (IsEmpty())
                 return;
@@ -120,7 +118,6 @@ namespace Timetable
                 return;
             else
             {
-
                 string teacherBox = teacher.Text;
                 string lessonBox = lesson.Text;
                 string typeBox = typeLesson.Text;
@@ -140,6 +137,29 @@ namespace Timetable
                 if (radioButton6.Checked)
                     dayBox = radioButton6.Text;
                 StringTable mainStr = new StringTable(teacherBox, lessonBox, typeBox, groupBox, dayBox, timeBox);
+                int ind = S.IndexOf(Str);
+                //занят преподаватель
+                foreach (var str in S)
+                {
+                    if (ind != S.IndexOf(str) && str.Teacher == mainStr.Teacher && str.Day == mainStr.Day && str.Time == mainStr.Time)
+                    {
+                        MessageBox.Show($"У преподавателя {str.Teacher} уже есть {str.TypeLesson} " +
+                             $"по предмету '{str.Lesson}'у группы {str.Group} в {str.Day}" +
+                             $" в {str.Time}.", "Изменение записи", 0, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                // занята группа
+                foreach (var str in S)
+                {
+                    if (ind != S.IndexOf(str) && str.Group == mainStr.Group && str.Day == mainStr.Day && str.Time == mainStr.Time)
+                    {
+                        MessageBox.Show($"У группы {str.Group} уже есть {str.TypeLesson} " +
+                            $"по предмету '{str.Lesson}' преподавателя {str.Teacher} в {str.Day}" +
+                            $" в {str.Time}.", "Изменение записи", 0, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
                 Form1.mainStr = mainStr;
             }
             Close();

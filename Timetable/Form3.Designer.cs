@@ -250,7 +250,7 @@ namespace Timetable
             this.buttonOk3.TabIndex = 26;
             this.buttonOk3.Text = "Ок";
             this.buttonOk3.UseVisualStyleBackColor = false;
-            this.buttonOk3.Click += new System.EventHandler(this.buttonOk3_Click);
+            this.buttonOk3.Click += new System.EventHandler(this.ButtonOk3_Click);
             // 
             // buttonReset3
             // 
@@ -261,7 +261,7 @@ namespace Timetable
             this.buttonReset3.TabIndex = 25;
             this.buttonReset3.Text = "Отмена";
             this.buttonReset3.UseVisualStyleBackColor = false;
-            this.buttonReset3.Click += new System.EventHandler(this.buttonReset3_Click);
+            this.buttonReset3.Click += new System.EventHandler(this.ButtonReset3_Click);
             // 
             // panel1
             // 
@@ -368,6 +368,7 @@ namespace Timetable
             this.Controls.Add(this.buttonOk3);
             this.Controls.Add(this.buttonReset3);
             this.Controls.Add(this.TextChange);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
